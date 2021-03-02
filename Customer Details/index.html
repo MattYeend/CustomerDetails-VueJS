@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Customer Details</title>
+	<style type="text/css" href="style.css"></style>
+	<script src="../JS/vue.min.js"></script>
+</head>
+<body>
+	<div id = "databinding" style = "">
+		<h1>Customer Details</h1>
+		<span>First Name</span>
+		<input type = "text" placeholder = "Enter First Name" v-model = "fname"/>
+		<span>Last Name</span>
+		<input type = "text" placeholder = "Enter Last Name" v-model = "lname"/>
+		<span>Address</span>
+		<input type = "text" placeholder = "Enter Address" v-model = "addr"/>
+		<button v-on:click = "showdata" v-bind:style = "styleobj">Add</button><br/><br/>
+		<customercomponent
+			v-for = "(item, index) in custdet"
+			v-bind:item = "item"
+			v-bind:index = "index"
+			v-bind:itr = "item"
+			v-bind:key = "item.fname"
+			v-on:removeelement = "custdet.splice(index, 1)">
+		</customercomponent>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
